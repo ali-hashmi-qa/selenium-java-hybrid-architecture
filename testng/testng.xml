@@ -3,7 +3,7 @@
 <suite name="Smoke Suite">
     <test name="Smoke Tests">
         <classes>
-            <class name="base.BaseTest"/>
+            <class name="tests.LoginTest"/>
         </classes>
     </test>
 </suite>

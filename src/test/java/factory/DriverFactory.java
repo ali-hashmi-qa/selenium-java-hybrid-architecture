@@ -12,8 +12,11 @@ public class DriverFactory {
 	
 	public static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 	
-	public static void initDriver() {
-		String browser = ConfigReader.get("browser");
+	public static void initDriver(String browser) {
+		
+		if(browser==null) {
+		 browser = ConfigReader.get("browser");
+		}
 		if(browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver.set(new ChromeDriver());

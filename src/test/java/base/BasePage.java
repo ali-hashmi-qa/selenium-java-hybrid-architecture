@@ -34,5 +34,9 @@ public class BasePage {
 	protected String getTitleText() {
 		return driver.getTitle();
 	}
+	
+	protected String getElementText(WebElement element) {
+		return wait.until(ExpectedConditions.visibilityOf(element)).getText();		
+	}
 
 }

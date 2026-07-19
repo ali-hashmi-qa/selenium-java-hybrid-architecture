@@ -10,6 +10,7 @@ public class LoginPage extends BasePage {
 	@FindBy(id="user-name") private WebElement usernameInput;
 	@FindBy(id="password") private WebElement pwInput;
 	@FindBy(id="login-button") private WebElement loginBtn;
+	@FindBy(css="h3[data-test='error']") private WebElement errorMsg;
 	
 	public LoginPage enterUsername(String username) {
 		type(usernameInput, username);
@@ -31,6 +32,15 @@ public class LoginPage extends BasePage {
 		enterPassword(password);
 		clickLoginBtn();
 		return new HomePage();
-	}	
+	}
+	
+	public boolean errorMsgIsDisplayed() {
+		return elementIsDisplayed(errorMsg);
+		
+	}
+	
+	public String getErrorMsgText() {
+		return getElementText(errorMsg);
+	}
 
 }

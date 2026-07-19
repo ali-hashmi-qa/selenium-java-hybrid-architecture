@@ -10,8 +10,8 @@
     
     <test name="FireFox Execution">
     <parameter name="browser" value="firefox"></parameter>
-    <classes>
-          <class name="tests.LoginTest"/>
-    </classes>
-    </test>
+        <classes>
+          <class name="tests.LoginTest"/> 
+        </classes>
+    </test> 
 </suite>

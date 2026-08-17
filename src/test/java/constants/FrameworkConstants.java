@@ -19,4 +19,6 @@ public class FrameworkConstants {
 	
 	public static final String Logs_Folder = Test_Output_Folder + "logs\\";
 	
+	public static final String test_data = User_Dir + "\\src\\test\\resources\\testdata\\LoginData.xlsx";
+	
 }

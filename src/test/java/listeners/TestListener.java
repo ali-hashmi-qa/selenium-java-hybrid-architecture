@@ -15,8 +15,21 @@ public class TestListener implements ITestListener {
 	
 	@Override
 	public void onTestStart(ITestResult result) {
+		ExtentTest test = null;
 		String browser = result.getTestContext().getCurrentXmlTest().getParameter("browser");
-		ExtentTest test = extent.createTest(result.getMethod().getMethodName()+" ["+browser+"]");
+		Object[] params = result.getParameters();
+		if (params.length == 4) {
+			
+		    String testCaseId = String.valueOf(params[0]);
+		    String username = String.valueOf(params[1]);
+		    String expectedResult = String.valueOf(params[3]);
+		    test = extent.createTest(testCaseId + " - "
+		                             + result.getMethod().getMethodName()+" ["+browser+"]"
+		                             + "[" + username + " - " + expectedResult + "]");
+		} else {
+			test = extent.createTest(result.getMethod().getMethodName()+" ["+browser+"]");
+		}
+		
 		test.assignCategory("Browser: " + browser);
 		ExtentTestManager.setTest(test);		
 	}

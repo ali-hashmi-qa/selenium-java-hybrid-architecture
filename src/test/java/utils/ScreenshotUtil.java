@@ -25,5 +25,10 @@ public class ScreenshotUtil {
 		
 		return screenshotPath;	
 	}
+	
+	 public static String captureScreenshotAsBase64() {
+	        TakesScreenshot ts = (TakesScreenshot) DriverFactory.getDriver();
+	        return ts.getScreenshotAs(OutputType.BASE64);
+	    }
 
 }

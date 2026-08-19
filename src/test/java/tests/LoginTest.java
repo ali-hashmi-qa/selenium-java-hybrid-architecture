@@ -51,8 +51,9 @@ public class LoginTest extends BaseTest{
 
             Assert.assertTrue(loginPage.errorMsgIsDisplayed(),
                     "Error message not displayed for locked user");
-            logger.warn("Intentionally failing the test to verify screenshot on failure");
-            Assert.fail("Intentional failure to test screenshot capture functionality");
+//            logger.warn("Intentionally failing the test to verify screenshot on failure");
+//            Assert.fail("Intentional failure to test screenshot capture functionality");
+            logger.info("This username: '{}' is a locked user", username);
 
         } else {
             Assert.fail("Invalid expectedResult value in test data: " + expectedResult);

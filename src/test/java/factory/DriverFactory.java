@@ -31,7 +31,7 @@ public class DriverFactory {
                 chromeOptions.addArguments("--disable-dev-shm-usage");
                 chromeOptions.addArguments("--window-size=1920,1080");
                 }
-			driver.set(new ChromeDriver());
+			driver.set(new ChromeDriver(chromeOptions));
 		}
 		else if (browser.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
@@ -40,7 +40,7 @@ public class DriverFactory {
                 firefoxOptions.addArguments("-headless");
                 firefoxOptions.addArguments("--window-size=1920,1080");
             }
-            driver.set(new FirefoxDriver());
+            driver.set(new FirefoxDriver(firefoxOptions));
 
         } else if (browser.equalsIgnoreCase("edge")) {
             WebDriverManager.edgedriver().setup();

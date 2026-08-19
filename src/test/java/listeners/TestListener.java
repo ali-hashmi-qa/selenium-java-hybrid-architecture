@@ -42,8 +42,10 @@ public class TestListener implements ITestListener {
 	@Override
 	public void onTestFailure(ITestResult result) {
 		ExtentTestManager.getTest().fail(result.getThrowable());
-		String screenshotPath = ScreenshotUtil.captureScreenshot(result.getMethod().getMethodName());
-		ExtentTestManager.getTest().addScreenCaptureFromPath(screenshotPath);
+		ScreenshotUtil.captureScreenshot(result.getMethod().getMethodName());
+		String base64Screenshot = ScreenshotUtil.captureScreenshotAsBase64();
+        ExtentTestManager.getTest().addScreenCaptureFromBase64String(base64Screenshot, 
+                result.getMethod().getMethodName() + " - Failure Screenshot");
 	}
 	
 	@Override

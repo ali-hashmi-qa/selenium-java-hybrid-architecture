@@ -24,7 +24,7 @@ jobs:
           cache: maven
 
       - name: Start Docker Selenium Grid
-        run: docker-compose up -d
+        run: docker compose up -d
 
       - name: Wait for Grid Readiness
         run: sleep 5
@@ -34,7 +34,7 @@ jobs:
 
       - name: Stop Docker Selenium Grid
         if: always()
-        run: docker-compose down
+        run: docker compose down
 
       - name: Upload Test Output Artifacts
         if: always()

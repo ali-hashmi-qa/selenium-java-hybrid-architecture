@@ -2,7 +2,7 @@ name: Docker Selenium Grid CI Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main"]
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
@@ -40,6 +40,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: execution-test-output-${{ matrix.os }}
+          name: execution-test-output
           path: test-output/
           retention-days: 7

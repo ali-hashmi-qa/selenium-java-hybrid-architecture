@@ -6,18 +6,17 @@
 
 ## 🛠️ Tech Stack & Libraries
 
-| Category | Technology | Version |
-
-| **Language** | Java | `17` |
-| **Automation** | Selenium WebDriver | `4.45.0` |
-| **Testing** | TestNG | `7.12.0` |
-| **Build Tool** | Apache Maven (Surefire) | `3.5.6` |
-| **Driver Manager** | WebDriverManager | `6.3.2` |
-| **Data Engine** | Apache POI | `5.5.1` |
-| **Infrastructure** | Docker & Docker Compose | Grid 4 |
-| **CI/CD** | GitHub Actions | Runner |
-| **Reporting** | Extent Reports | `5.1.2` |
-| **Logging** | Log4j2 | `2.25.1` |
+* **Core Language:** Java 17
+* **Automation:** Selenium WebDriver `4.45.0`
+* **Test Runner:** TestNG `7.12.0` (Parallel execution & DataProviders)
+* **Build Tool:** Apache Maven (`maven-surefire-plugin` `3.5.6`)
+* **Driver Management:** WebDriverManager `6.3.2`
+* **Data Engine:** Apache POI `5.5.1` (Data-driven Excel testing)
+* **Design Pattern:** Page Object Model (POM) with Fluent Interface
+* **Infrastructure:** Docker & Docker Compose (Selenium Grid 4 Hub & Nodes)
+* **CI/CD:** GitHub Actions (Automated workflow & artifact archiving)
+* **Reporting:** Extent Reports `5.1.2` (Interactive HTML with Base64 images)
+* **Logging:** Apache Log4j2 `2.25.1` (Console & Rolling file appender)
 
 An enterprise-grade, thread-safe, cross-browser hybrid test automation framework engineered in **Java 17**, **Selenium WebDriver 4**, **TestNG**, and **Maven**. Built following **Page Object Model (POM)** and **Fluent Interface** design principles, fully data-driven via **Apache POI**, and containerized using **Docker Compose** for continuous execution on **GitHub Actions CI**.
 

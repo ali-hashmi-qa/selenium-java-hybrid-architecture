@@ -1,4 +1,4 @@
-name: Cross-Platform Selenium CI Pipeline
+name: Docker Selenium Grid CI Pipeline
 
 on:
   push:
@@ -8,14 +8,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  selenium-automation-tests:
-    name: Test on ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ ubuntu-latest, windows-latest ]
-
-    runs-on: ${{ matrix.os }}
+  docker-selenium-grid:
+	name: Execute Tests on Docker Selenium Grid
+	runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
@@ -28,8 +23,18 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Execute Selenium Tests
-        run: mvn clean test -Dheadless=true
+	  - name: Start Docker Selenium Grid
+		          run: docker-compose up -d
+
+	  - name: Wait for Grid Readiness
+		          run: sleep 5
+
+	  - name: Execute Selenium Tests on Docker Grid
+		          run: mvn clean test -Dexecution_env=grid -Dheadless=true
+
+	  - name: Stop Docker Selenium Grid
+		          if: always()
+		          run: docker-compose down
 
       - name: Upload Test Output Artifacts
         if: always()

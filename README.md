@@ -126,23 +126,41 @@ An enterprise-grade, thread-safe, cross-browser hybrid test automation framework
                 └── login_test_data.xlsx # External Excel test data source
                 
 
-🚀 Execution Instructions
-Prerequisites
-Java JDK 17+ installed & JAVA_HOME configured.
-Apache Maven 3.8+ installed.
-Docker Desktop (Optional, required only for local Selenium Grid execution).
+## 🚀 Execution Instructions
 
-1️⃣ Run Locally (Standard Browser Execution)
+### Prerequisites
+
+- Java JDK 17+ installed & `JAVA_HOME` configured.
+- Apache Maven 3.8+ installed.
+- Docker Desktop (optional, required only for local Selenium Grid execution).
+
+---
+
+### 1️⃣ Run Locally (Standard Browser Execution)
+
 To run tests on your local machine using standard Chrome/Firefox GUI windows:
+
+```bash
 mvn clean test
+```
 
-2️⃣ Run Locally in Headless Mode
+---
+
+### 2️⃣ Run Locally in Headless Mode
+
 To run tests in the background without opening browser windows:
-mvn clean test -Dheadless=true
 
-3️⃣ Run via Local Docker Selenium Grid
+```bash
+mvn clean test -Dheadless=true
+```
+
+---
+
+### 3️⃣ Run via Local Docker Selenium Grid
+
 Execute tests against containerized Chrome & Firefox browsers running on a local Docker Grid:
 
+```bash
 # Step 1: Spin up containerized Grid Hub & Nodes
 docker compose up -d
 
@@ -151,8 +169,9 @@ mvn clean test -Dexecution_env=grid -Dheadless=true
 
 # Step 3: Tear down Grid containers after execution finishes
 docker compose down
+```
 
-🌐 View the live Grid dashboard by navigating to http://localhost:4444 in your browser.
+🌐 View the live Grid dashboard by navigating to [http://localhost:4444](http://localhost:4444) in your browser.
 
 📊 Reports & Execution Artifacts
 After execution, all test output artifacts are dynamically generated in the test-output/ folder:
@@ -164,19 +183,29 @@ test-output/
 └── screenshots/
     └── loginTest_20260819_170015.png        # Physical PNG screenshots
     
-    
-☁️ Continuous Integration Artifacts (GitHub Actions)
-On every push or pull_request to main, GitHub Actions executes the full test suite in headless mode on Linux runners.
-Navigate to the Actions tab in GitHub -> Click on the latest workflow run -> Download the execution-test-output ZIP artifact to view the full HTML report, embedded failure screenshots, and execution logs generated in the cloud!
 
-🧩 Design Patterns & Architecture Principles
-Page Object Model (POM): Prevents code duplication by decoupling page UI locators from test logic.
-Fluent Interface Pattern: Method calls in page objects return page instances (return this; or return new HomePage();), allowing method chaining (e.g., loginPage.enterUsername().enterPassword().clickLogin()).
-Factory Design Pattern: Encapsulates browser initialization logic inside DriverFactory.
-Singleton Design Pattern: ExtentManager enforces a single, thread-safe ExtentReports instance across the execution lifecycle.
-ThreadLocal Driver Storage: Guarantees parallel thread isolation by giving every executing thread its own dedicated WebDriver instance.
+---
 
+## ☁️ Continuous Integration Artifacts (GitHub Actions)
 
-👤 Author & Contact
-Ali Hashmi|QA Automation Engineer
-LinkedIn: www.linkedin.com/in/syedali-hashmi
+On every push or `pull_request` to `main`, GitHub Actions executes the full test suite in headless mode on Linux runners.
+
+Navigate to the **Actions** tab in GitHub → Click on the latest workflow run → Download the `execution-test-output` ZIP artifact to view the full HTML report, embedded failure screenshots, and execution logs generated in the cloud!
+
+---
+
+## 🧩 Design Patterns & Architecture Principles
+
+- **Page Object Model (POM):** Prevents code duplication by decoupling page UI locators from test logic.
+- **Fluent Interface Pattern:** Method calls in page objects return page instances (`return this;` or `return new HomePage();`), allowing method chaining (e.g., `loginPage.enterUsername().enterPassword().clickLogin()`).
+- **Factory Design Pattern:** Encapsulates browser initialization logic inside `DriverFactory`.
+- **Singleton Design Pattern:** `ExtentManager` enforces a single, thread-safe `ExtentReports` instance across the execution lifecycle.
+- **ThreadLocal Driver Storage:** Guarantees parallel thread isolation by giving every executing thread its own dedicated `WebDriver` instance.
+
+---
+
+## 👤 Author & Contact
+
+**Ali Hashmi** | QA Automation Engineer
+
+- LinkedIn: [www.linkedin.com/in/syedali-hashmi](https://www.linkedin.com/in/syedali-hashmi)
